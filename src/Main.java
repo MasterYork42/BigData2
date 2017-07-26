@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,7 +23,13 @@ public class Main {
 
             if(n==1)
             {
+                ArrayList<String> temp = OpenDAO.getOpen();
+                temp.removeAll(Arrays.asList(null,"", " "));
+                for(int i=0; i< temp.size(); i++) {
+                    String hold = Integer.toString(i+1) +".) " + temp.get(i);
+                    System.out.println(hold);
 
+                }
 
             }
 
@@ -35,8 +42,10 @@ public class Main {
             if(n==3)
             {
                 ArrayList <String> temp = RestaurantsDAO.getRestaurantNames();
+                temp.removeAll(Arrays.asList(null,"", " "));
                 for(int i=0; i< temp.size(); i++) {
-                    System.out.println(temp.get(i));
+                    String hold = Integer.toString(i+1) +".) " + temp.get(i);
+                    System.out.println(hold);
 
                 }
             }
