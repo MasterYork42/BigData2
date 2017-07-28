@@ -42,39 +42,95 @@ public class Main {
                 }
 
                 if(temp.size()<2)
-                {   while(true)
+            {   while(true)
+            {
+                System.out.println("What information do you want about this restaurant?");
+                System.out.println("1.) Weekly hours");
+                System.out.println("2.) Hours Today ");
+                System.out.println("3.) Exit ");
+                int h = scan.nextInt();
+
+                if(h==1)
+                {
+                    ArrayList<String[]> temp2 = weeklyHoursDAO.getWeeklyHours(temp.get(0));
+                    temp.removeAll(Arrays.asList(null,"", " "));
+                    for(int i=0; i< temp2.size(); i++) {
+                        String[] hold = temp2.get(i);
+                        System.out.println(hold[0].toString());
+
+                    }
+
+                }
+
+                if(h==2)
+                {
+                    ArrayList<String[]> temp2 = todayHoursDAO.getTodayHours(temp.get(0));
+                    temp.removeAll(Arrays.asList(null,"", " "));
+                    for(int i=0; i< temp2.size(); i++) {
+                        String[] hold = temp2.get(i);
+                        System.out.println(hold[0].toString());
+
+                    }
+
+                }
+
+                if(h==3)
+                {
+                    break;
+
+                }
+
+            }
+
+
+            }
+
+                if(temp.size()>1)
+                {
+                    System.out.println("Select number for desired restaurant");
+                    int temp3= scan.nextInt();
+
+
+
+                    while(true)
                     {
                     System.out.println("What information do you want about this restaurant?");
                     System.out.println("1.) Weekly hours");
                     System.out.println("2.) Hours Today ");
-                        System.out.println("3.) Exit Program");
-                        int h = scan.nextInt();
+                    System.out.println("3.) Exit ");
+                    int h = scan.nextInt();
 
-                        if(h==1)
-                        {
-                            ArrayList<String[]> temp2 = weeklyHoursDAO.getWeeklyHours(temp.get(0));
-                            temp.removeAll(Arrays.asList(null,"", " "));
-                            for(int i=0; i< temp2.size(); i++) {
-                                String[] hold = temp2.get(i);
-                                System.out.println(hold[0].toString());
-
-                            }
-
-                        }
-
-                        if(h==2)
-                        {
-
-
-                        }
-
-                        if(h==3)
-                        {
-                            break;
+                    if(h==1)
+                    {
+                        ArrayList<String[]> temp2 = weeklyHoursDAO.getWeeklyHours(temp.get(temp3-1));
+                        temp.removeAll(Arrays.asList(null,"", " "));
+                        for(int i=0; i< temp2.size(); i++) {
+                            String[] hold = temp2.get(i);
+                            System.out.println(hold[0].toString());
 
                         }
 
                     }
+
+                    if(h==2)
+                    {
+                        ArrayList<String[]> temp2 = todayHoursDAO.getTodayHours(temp.get(temp3-1));
+                        temp.removeAll(Arrays.asList(null,"", " "));
+                        for(int i=0; i< temp2.size(); i++) {
+                            String[] hold = temp2.get(i);
+                            System.out.println(hold[0].toString());
+
+                        }
+
+                    }
+
+                    if(h==3)
+                    {
+                        break;
+
+                    }
+
+                }
 
 
                 }
