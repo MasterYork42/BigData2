@@ -56,7 +56,7 @@ public class Main {
                             temp.removeAll(Arrays.asList(null,"", " "));
                             for(int i=0; i< temp2.size(); i++) {
                                 String[] hold = temp2.get(i);
-                                System.out.println(hold.toString());
+                                System.out.println(hold[0].toString());
 
                             }
 
